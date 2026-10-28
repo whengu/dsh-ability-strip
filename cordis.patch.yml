@@ -1,0 +1,9 @@
+# The dsh-ability-strip bundle patch: one inert Host row.
+#
+# The Host row exists only so the Loader carries this package and the client
+# module system composes its `dsh.client` browser bundle into the boot graph.
+# All behaviour lives in the browser half (lib/client.js); lib/index.js is an
+# empty `apply` on purpose.
+- insert:
+    - id: ability-strip
+      name: 'dsh-ability-strip'

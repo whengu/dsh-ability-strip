@@ -1,0 +1,41 @@
+{
+  "name": "dsh-ability-strip",
+  "version": "0.3.0",
+  "private": true,
+  "description": "A read-only strip docked under the composer in the dsh Web GUI: how many skills this session sees, and whether any MCP server actually connected (tools registered), served by its own host half.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "dsh": ">=0.2.0-rc.2"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "check": "node scripts/check-host.mjs && node scripts/check-bundle-contract.mjs && node scripts/check-render.mjs",
+    "check:pack": "node scripts/verify-pack.mjs"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "scripts/check-host.mjs",
+    "scripts/check-bundle-contract.mjs",
+    "scripts/check-render.mjs",
+    "scripts/verify-pack.mjs"
+  ]
+}
